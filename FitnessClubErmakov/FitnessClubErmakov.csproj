@@ -111,11 +111,17 @@
     <Compile Include="DataBase\UserAuth.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddEditServiceWindow.xaml.cs">
+      <DependentUpon>AddEditServiceWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Director\EmpoyerList.xaml.cs">
       <DependentUpon>EmpoyerList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Director\Report.xaml.cs">
       <DependentUpon>Report.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Director\AddService.xaml.cs">
+      <DependentUpon>AddService.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -126,6 +132,10 @@
     <Compile Include="Windows\ServiceListWindow.xaml.cs">
       <DependentUpon>ServiceListWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Windows\AddEditServiceWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Admin\AdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -171,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Director\Report.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Director\AddService.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

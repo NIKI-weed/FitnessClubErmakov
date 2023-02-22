@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessClubErmakov.Windows"
         mc:Ignorable="d"
-        Title="Регистрация" Height="700" Width="300"
+        Title="Регистрация" Height="780" Width="300"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Window.Resources>
         <Style x:Key="FocusVisual">
@@ -306,8 +306,38 @@
             </TextBox.Resources>
         </TextBox>
 
-        <Label Content="Почта" HorizontalAlignment="Center" Margin="0,244,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbEmail" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black" Margin="0,270,0,0">
+        <Label Content="Фамилия" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbSecondName" HorizontalAlignment="Center" Margin="0,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+
+        <Label Content="Отчество" HorizontalAlignment="Center" Margin="0,127,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbPatronimic" HorizontalAlignment="Center" Margin="0,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+
+        <Label Content="Телефон" HorizontalAlignment="Center" Margin="0,186,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbPhone" HorizontalAlignment="Center" Margin="0,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+
+        <Label Content="Пол" HorizontalAlignment="Center" Margin="0,305,0,0" VerticalAlignment="Top"/>
+        <ComboBox Style="{DynamicResource ComboBoxStyle1}" x:Name="CMBGender" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" Width="148" Height="26" Margin="0,331,0,0"/>
+
+        <Label Content="Почта" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,244,0,0"/>
+        <TextBox x:Name="tbEmail" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black" Margin="0,271,0,0">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -342,34 +372,6 @@
         </Button>
 
         <Button x:Name="BtnAlreadyAccount" Content="У меня уже есть аккаунт" HorizontalAlignment="Center" Margin="0,632,0,0" VerticalAlignment="Top" BorderBrush="#00707070" Background="#00000000" Foreground="Black" FontSize="10" Click="BtnAlreadyAccount_Click"/>
-
-        <Label Content="Фамилия" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbSecondName" HorizontalAlignment="Center" Margin="0,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-        <Label Content="Отчество" HorizontalAlignment="Center" Margin="0,127,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbPatronimic" HorizontalAlignment="Center" Margin="0,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-        <Label Content="Телефон" HorizontalAlignment="Center" Margin="0,185,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbPhone" HorizontalAlignment="Center" Margin="0,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-
-        <Label Content="Пол" HorizontalAlignment="Center" Margin="0,301,0,0" VerticalAlignment="Top"/>
-        <ComboBox Style="{DynamicResource ComboBoxStyle1}" x:Name="CMBGender" FontSize="18" HorizontalAlignment="Center" Margin="0,331,0,323" Width="148" Height="30"/>
 
     </Grid>
 </Window>

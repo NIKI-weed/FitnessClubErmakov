@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessClubErmakov.Windows"
         mc:Ignorable="d"
-        Title="ServiceListWindow" Height="500" Width="800">
+        Title="Список услуг" Height="500" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -46,14 +46,13 @@
                                         </Binding.TargetNullValue>
                                     </Binding>
                                 </Image.Source>
-
                             </Image>
 
                             <TextBlock Text="{Binding Name}" FontSize="18" Margin="5 0 0 0"/>
                             <TextBlock Text="{Binding Price}" FontSize="18" Margin="5 0 0 0"/>
                             <TextBlock Text="{Binding Description}" FontSize="18" Margin="5 0 0 0"/>
 
-                            <Button x:Name="BtnEditProduct" Content="Изменить" FontSize="18" Width="150" Height="30" Margin="10" Click="BtnEditProduct_Click">
+                            <Button x:Name="BtnEditProduct" Content="Изменить" FontSize="18" Width="150" Height="30" Margin="10" Click="BtnEditProduct_Click" Background="White">
                                 <Button.Resources>
                                     <Style TargetType="Border">
                                         <Setter Property="CornerRadius" Value="13"/>
@@ -67,7 +66,13 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button x:Name="BtnAddService" Content="Добавить услугу" Grid.Row="3" Width="250" Height="40" FontSize="22" HorizontalAlignment="Right" Margin="20 0" Click="BtnAddService_Click"/>
-        
+        <Button x:Name="BtnAddService" Content="Добавить услугу" Grid.Row="3" Width="250" Height="34" FontSize="22" HorizontalAlignment="Right" Margin="20 0" Click="BtnAddService_Click" Background="White">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="13"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
     </Grid>
 </Window>

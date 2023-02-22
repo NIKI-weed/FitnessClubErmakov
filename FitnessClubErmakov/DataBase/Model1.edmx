@@ -79,7 +79,7 @@
           <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
           <Property Name="DurationInMin" Type="int" />
           <Property Name="Description" Type="nvarchar" MaxLength="1000" />
-          <Property Name="PhotoPath" Type="nchar" MaxLength="10" />
+          <Property Name="PhotoPath" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -447,7 +447,7 @@
           <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="DurationInMin" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="PhotoPath" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PhotoPath" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Client" Relationship="Model.ClientService" FromRole="Service" ToRole="Client" />
         </EntityType>
         <EntityType Name="sysdiagrams">

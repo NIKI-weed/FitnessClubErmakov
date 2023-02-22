@@ -27,7 +27,7 @@ namespace FitnessClubErmakov.Windows
         {
             InitializeComponent();
             CMBGender.ItemsSource = ClassHelper.EFClass.context.GenderCode.ToList();
-            CMBGender.DisplayMemberPath = "NameGender";
+            CMBGender.DisplayMemberPath = "Name";
             CMBGender.SelectedIndex = 0;
         }
 
@@ -41,10 +41,23 @@ namespace FitnessClubErmakov.Windows
         {
             if (string.IsNullOrWhiteSpace(tbSecondName.Text))
             {
-                MessageBox.Show("Поле фамилия не может быть пустым");
+                MessageBox.Show("Поле фамилия не может быть пустым.");
                 return;
             }
+            if (string.IsNullOrEmpty(tbPassword.Text))
+            {
+                MessageBox.Show("Нужен пароль.");
+                return;
+            }
+            if (string.Equals(tbPassword, tbRepPassword))
+            {
 
+            }
+            else 
+            {
+                MessageBox.Show("Пароли должны совпадать!");
+                return;
+            }
             // Добавление клиента
             Client client = new Client();
 
@@ -54,6 +67,7 @@ namespace FitnessClubErmakov.Windows
             client.Phone = tbPhone.Text;
             client.Email = tbEmail.Text;
             client.GenderCode = (CMBGender.SelectedItem as GenderCode).GenderCode1;
+            client.Password = tbPassword.Text;
 
             ClassHelper.EFClass.context.Client.Add(client);
 
