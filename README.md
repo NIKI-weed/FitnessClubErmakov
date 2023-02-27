@@ -10,10 +10,10 @@
 <br>
 Окна авторизации и регистрации
 Авторизация
-<br> ![image](https://user-images.githubusercontent.com/74093781/218426412-d8b4f17a-4fb3-46d8-946f-d3bbc513482e.png)
+<br> ![image](https://user-images.githubusercontent.com/74093781/221649318-3462e177-a3a6-4a77-bb75-db866b893ae9.png)
 <br>
 Регистрация
-<br> ![image](https://user-images.githubusercontent.com/74093781/220729558-8131678f-f5c5-4fd9-9e3a-ee1c5cd63426.png)
+<br> ![image](https://user-images.githubusercontent.com/74093781/221650117-13c1d633-a9cd-4835-aa98-8caa9181d20b.png)
 <br>
 Модель БД
 <br> ![image](https://user-images.githubusercontent.com/74093781/220729617-4bde9558-c59e-4cea-a4ae-0e72f95bc2ed.png)
