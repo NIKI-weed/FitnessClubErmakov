@@ -31,50 +31,53 @@ namespace FitnessClubErmakov.Windows
             CMBGender.SelectedIndex = 0;
         }
 
+        // Кнопка "Уже есть аккаунт"
         private void BtnAlreadyAccount_Click(object sender, RoutedEventArgs e)
         {
             AuthWindow registrationClientWindow = new AuthWindow();
             registrationClientWindow.ShowDialog();
         }
 
+        // Кнопка "Регистрация"
         private void BtnRegistration_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(tbSecondName.Text))
             {
-                MessageBox.Show("Поле фамилия не может быть пустым.");
+                MessageBox.Show("Поле \"фамилия\" не может быть пустыми!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
+
             if (string.IsNullOrEmpty(tbPassword.Text))
             {
-                MessageBox.Show("Нужен пароль.");
+                MessageBox.Show("Нужен пароль!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            if (string.Equals(tbPassword, tbRepPassword))
-            {
 
+            // Проверка совпедения паролей
+            if (tbPassword == tbRepPassword)
+            {
+                // Добавление клиента
+                Client client = new Client();
+
+                client.Name = tbFirstName.Text;
+                client.SecondName = tbSecondName.Text;
+                client.Patronimic = tbPatronimic.Text;
+                client.Phone = tbPhone.Text;
+                client.Email = tbEmail.Text;
+                client.GenderCode = (CMBGender.SelectedItem as GenderCode).GenderCode1;
+                client.Password = tbPassword.Text;
+
+                ClassHelper.EFClass.context.Client.Add(client);
+
+                ClassHelper.EFClass.context.SaveChanges();
+
+                MessageBox.Show("Регистрация успешна!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else 
             {
-                MessageBox.Show("Пароли должны совпадать!");
+                MessageBox.Show("Пароли должны совпадать!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
-            }
-            // Добавление клиента
-            Client client = new Client();
-
-            client.Name = tbFirstName.Text;
-            client.SecondName = tbSecondName.Text;
-            client.Patronimic = tbPatronimic.Text;
-            client.Phone = tbPhone.Text;
-            client.Email = tbEmail.Text;
-            client.GenderCode = (CMBGender.SelectedItem as GenderCode).GenderCode1;
-            client.Password = tbPassword.Text;
-
-            ClassHelper.EFClass.context.Client.Add(client);
-
-            ClassHelper.EFClass.context.SaveChanges();
-
-            MessageBox.Show("Регистрация успешна");
-
+            }            
         }
     }
 }

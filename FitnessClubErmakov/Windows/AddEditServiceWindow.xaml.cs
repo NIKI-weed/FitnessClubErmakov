@@ -37,7 +37,7 @@ namespace FitnessClubErmakov.Windows
         }
         public AddEditServiceWindow(Service service)
         {
-            // конструктор для редактирования
+            // Конструктор для редактирования
 
             InitializeComponent();
 
@@ -52,7 +52,7 @@ namespace FitnessClubErmakov.Windows
             TbTimeService.Text = service.DurationInMin.ToString();
             TbDescription.Text = service.Description.ToString();
 
-            // вывод изображения
+            // Вывод изображения
 
             if (service.PhotoPath != null)
             {
@@ -76,7 +76,7 @@ namespace FitnessClubErmakov.Windows
 
         private void BtnChooseImage_Click(object sender, RoutedEventArgs e)
         {
-            // выбор фото 
+            // Выбор фото 
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
@@ -88,10 +88,10 @@ namespace FitnessClubErmakov.Windows
 
         private void BtnAddEditService_Click(object sender, RoutedEventArgs e)
         {
-            // валидация
+            // Валидация
             if (isEdit == true)
             {
-                // изменение
+                // Изменение
                 editService.Name = TbNameService.Text;
                 editService.Price = Convert.ToDecimal(TbPriceService.Text);
                 editService.DurationInMin = Convert.ToInt32(TbTimeService.Text);
@@ -101,12 +101,12 @@ namespace FitnessClubErmakov.Windows
                     editService.PhotoPath = File.ReadAllBytes(pathImage);
                 }
                 EFClass.context.SaveChanges();
-                MessageBox.Show("Услуга успешно изменена");
+                MessageBox.Show("Услуга успешно изменена!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
             else
             {
-                // добавление
+                // Добавление
                 Service service = new Service();
                 service.Name = TbNameService.Text;
                 service.Price = Convert.ToDecimal(TbPriceService.Text);
@@ -116,7 +116,7 @@ namespace FitnessClubErmakov.Windows
 
                 EFClass.context.Service.Add(service);
                 EFClass.context.SaveChanges();
-                MessageBox.Show("Услуга успешно добавлена");
+                MessageBox.Show("Услуга успешно добавлена!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
             this.Close();
