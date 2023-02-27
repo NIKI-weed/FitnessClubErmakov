@@ -19,7 +19,7 @@
 <br> ![image](https://user-images.githubusercontent.com/74093781/220729617-4bde9558-c59e-4cea-a4ae-0e72f95bc2ed.png)
 <br> 
 Список услуг
-<br> ![image](https://user-images.githubusercontent.com/74093781/220872213-4041b690-a90e-43c4-9a04-c7a71fb609d8.png)
+<br> ![image](https://user-images.githubusercontent.com/74093781/221616207-6fcacc54-1a43-4056-ac19-2dbe1d788b33.png)
 <br>
 Добавление услуги
-<br> ![image](https://user-images.githubusercontent.com/74093781/220872470-03c371ef-91f3-4737-99f2-de7fbf6c07b6.png)
+<br> ![image](https://user-images.githubusercontent.com/74093781/221620948-b527fd72-998c-4905-9cf9-3d8d23b70181.png)
