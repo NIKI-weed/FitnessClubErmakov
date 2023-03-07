@@ -28,7 +28,6 @@ namespace FitnessClubErmakov.Windows
             InitializeComponent();
             CMBGender.ItemsSource = ClassHelper.EFClass.context.GenderCode.ToList();
             CMBGender.DisplayMemberPath = "Name";
-            CMBGender.SelectedIndex = 0;
         }
 
         // Кнопка "Уже есть аккаунт"

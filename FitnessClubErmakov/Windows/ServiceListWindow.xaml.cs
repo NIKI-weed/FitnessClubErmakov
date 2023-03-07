@@ -28,15 +28,21 @@ namespace FitnessClubErmakov.Windows
     /// </summary>
     public partial class ServiceListWindow : Window
     {
+        List<string> listOrder = new List<string>()
+        {   "По умолчанию",
+            "По названию (А - Я)",
+            "По названию (Я - А)",
+            "По цене (возрастание)",
+            "По цене (убывание)"
+        };
+        
         public ServiceListWindow()
         {
             InitializeComponent();
             GetServiceList();
-            CMBFilter.ItemsSource = ClassHelper.EFClass.context.Service.ToList();
-            CMBFilter.DisplayMemberPath = "Price";
 
-            CMBOrder.ItemsSource = "От А до Я";
-
+            CMBOrder.ItemsSource = listOrder;
+            CMBOrder.SelectedIndex = 0;
         }
 
         private void GetServiceList()
@@ -50,9 +56,31 @@ namespace FitnessClubErmakov.Windows
             // Поиск
             serviceList = serviceList.Where(s => s.Name.ToLower().Contains(TbSearch.Text.ToLower())).ToList();
 
-            //Фильтрация
+            // Сортировка
+            switch (CMBOrder.SelectedIndex)
+            {
+                case 0:
+                    serviceList = serviceList.OrderBy(s => s.IdService).ToList();
+                    break;
+                case 1:
+                    serviceList = serviceList.OrderBy(s => s.Name).ToList();
+                    break;
+                case 2:
+                    serviceList = serviceList.OrderByDescending(s => s.Name).ToList();
+                    break;
+                case 3:
+                    serviceList = serviceList.OrderBy(s => s.Price).ToList();
+                    break;
+                case 4:
+                    serviceList = serviceList.OrderByDescending(s => s.Price).ToList();
+                    break;
+                default:
+                    serviceList = serviceList.OrderBy(s => s.IdService).ToList();
+                    break;
+            }
+            // Фильтрация
 
-            lvService.ItemsSource = serviceList;
+            lvService.ItemsSource = serviceList; 
         }
 
         private void BtnEditProduct_Click(object sender, RoutedEventArgs e)
@@ -81,6 +109,11 @@ namespace FitnessClubErmakov.Windows
         }
 
         private void TbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            GetServiceList();
+        }
+
+        private void CMBOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             GetServiceList();
         }

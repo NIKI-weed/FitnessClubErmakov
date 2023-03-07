@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessClubErmakov.Windows"
-
         mc:Ignorable="d"
         Title="Список услуг" Height="500" Width="970"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
@@ -313,7 +312,7 @@
             <ComboBox Style="{DynamicResource ComboBoxStyle2}" x:Name="CMBFilter" Width="200" Margin="8 0 0 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
 
             <TextBlock Text="Сортировка:" FontSize="20" Margin="8 0 0 0"/>
-            <ComboBox Style="{DynamicResource ComboBoxStyle2}" x:Name="CMBOrder" Width="200" Margin="8 0 0 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
+            <ComboBox Style="{DynamicResource ComboBoxStyle2}" x:Name="CMBOrder" Width="200" Margin="8 0 0 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" SelectionChanged="CMBOrder_SelectionChanged" />
             
         </WrapPanel>
 
