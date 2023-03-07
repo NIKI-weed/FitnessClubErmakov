@@ -30,3 +30,10 @@
 <br>
 Поиск услуг
 <br> ![image](https://user-images.githubusercontent.com/74093781/222899765-e3c7bf6f-bd71-48fe-866d-c1b1a8174138.png)
+<br>
+Сортировка услуг
+<br> По умолчанию ![image](https://user-images.githubusercontent.com/74093781/223542932-66dd344e-f2bd-4752-9129-8045fd471b1a.png) 
+<br> По названию (А - Я) ![image](https://user-images.githubusercontent.com/74093781/223543097-c7eafae7-8412-47d4-9af6-36101b4ac3cd.png)
+<br> По названию (Я - А) ![image](https://user-images.githubusercontent.com/74093781/223543248-f5bfb485-2ca4-49f3-b262-3e805f48d0d0.png)
+<br> По цене (возрастание) ![image](https://user-images.githubusercontent.com/74093781/223543579-fd4acc6d-73c1-4b8b-8513-4cdcefb7c008.png)
+<br> По цене (убывание) ![image](https://user-images.githubusercontent.com/74093781/223543632-4332da55-584f-4eff-9d3e-d875ccfa6da0.png)
