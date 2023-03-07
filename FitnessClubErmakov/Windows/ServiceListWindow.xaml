@@ -309,11 +309,10 @@
             <TextBox x:Name="TbSearch" Width="200" FontSize="20" Background="Transparent" Margin="8 0 0 0" TextChanged="TbSearch_TextChanged" SelectionBrush="Black" BorderBrush="Black" />
 
             <TextBlock Text="Фильтры:" FontSize="20" Margin="8 0 0 0"/>
-            <ComboBox Style="{DynamicResource ComboBoxStyle2}" x:Name="CMBFilter" Width="200" Margin="8 0 0 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
+            <ComboBox Style="{DynamicResource ComboBoxStyle2}" FontSize="20" x:Name="CMBFilter" Width="200" Margin="8 0 0 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
 
             <TextBlock Text="Сортировка:" FontSize="20" Margin="8 0 0 0"/>
-            <ComboBox Style="{DynamicResource ComboBoxStyle2}" x:Name="CMBOrder" Width="200" Margin="8 0 0 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" SelectionChanged="CMBOrder_SelectionChanged" />
-            
+            <ComboBox ItemsSource="{Binding listOrder}" Style="{DynamicResource ComboBoxStyle2}" FontSize="20" x:Name="CMBOrder" Width="200" Margin="8 0 0 0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" SelectionChanged="CMBOrder_SelectionChanged" />
         </WrapPanel>
 
         <TextBlock Text="Список услуг" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>

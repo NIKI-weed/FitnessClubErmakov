@@ -26,16 +26,24 @@ namespace FitnessClubErmakov.Windows
     /// <summary>
     /// Логика взаимодействия для ServiceListWindow.xaml
     /// </summary>
+    /// 
+  
     public partial class ServiceListWindow : Window
     {
-        List<string> listOrder = new List<string>()
-        {   "По умолчанию",
-            "По названию (А - Я)",
-            "По названию (Я - А)",
-            "По цене (возрастание)",
-            "По цене (убывание)"
+        public List<string> listOrder = new List<string>()
+        {   
+        "По умолчанию",
+        "По названию (А - Я)",
+        "По названию (Я - А)",
+        "По цене (возрастание)",
+        "По цене (убывание)"
         };
-        
+
+        List<string> listFilter = new List<string>()
+        {
+            "С фото",
+            "Без фото"
+        };
         public ServiceListWindow()
         {
             InitializeComponent();
@@ -79,6 +87,7 @@ namespace FitnessClubErmakov.Windows
                     break;
             }
             // Фильтрация
+
 
             lvService.ItemsSource = serviceList; 
         }
