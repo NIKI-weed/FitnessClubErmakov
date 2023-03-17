@@ -270,10 +270,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resources\remove.png" />
-    <Resource Include="Resources\edit.png" />
-    <Resource Include="Resources\cart1.png" />
-    <Resource Include="Resources\edit1.png" />
+    <Resource Include="Resources\delete.png" />
+    <Resource Include="Resources\cart.png" />
+    <Resource Include="Resources\edits.png" />
     <Resource Include="Resources\NullAvi.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
