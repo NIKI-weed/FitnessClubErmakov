@@ -38,5 +38,9 @@
 <br> По цене (возрастание) ![image](https://user-images.githubusercontent.com/74093781/225124418-e5e508a6-2d7e-49a8-a671-2b7d073385c0.png)
 <br> По цене (убывание) ![image](https://user-images.githubusercontent.com/74093781/225124475-ae19066e-23fd-490c-bfcd-fd2b8aac0182.png)
 <br>
+<br> Добавление товара в корзину ![image](https://user-images.githubusercontent.com/74093781/225971802-0579bf5b-e4ec-426d-801a-73238dbf374e.png)
+<br>
+<br> Корзина ![image](https://user-images.githubusercontent.com/74093781/225972222-9afade1f-ac75-4dbc-a1cc-af199bc49450.png)
+<br>
 Список клиентов
 <br> ![image](https://user-images.githubusercontent.com/74093781/225125130-db25b819-fd94-47ea-abe1-26754d6b0ad9.png)
