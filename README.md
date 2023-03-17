@@ -19,7 +19,7 @@
 <br> ![image](https://user-images.githubusercontent.com/74093781/220729617-4bde9558-c59e-4cea-a4ae-0e72f95bc2ed.png)
 <br> 
 Список услуг
-<br> ![image](https://user-images.githubusercontent.com/74093781/225124149-c8813397-5686-411c-b23f-5af5fae7358a.png)
+<br> ![image](https://user-images.githubusercontent.com/74093781/226047136-5507536b-71d6-47ac-aaf4-fe165ae8ff2a.png)
 <br>
 Добавление услуги
 <br> ![image](https://user-images.githubusercontent.com/74093781/221620948-b527fd72-998c-4905-9cf9-3d8d23b70181.png)
@@ -38,9 +38,9 @@
 <br> По цене (возрастание) ![image](https://user-images.githubusercontent.com/74093781/225124418-e5e508a6-2d7e-49a8-a671-2b7d073385c0.png)
 <br> По цене (убывание) ![image](https://user-images.githubusercontent.com/74093781/225124475-ae19066e-23fd-490c-bfcd-fd2b8aac0182.png)
 <br>
-<br> Добавление товара в корзину ![image](https://user-images.githubusercontent.com/74093781/225971802-0579bf5b-e4ec-426d-801a-73238dbf374e.png)
+<br> Добавление товара в корзину ![image](https://user-images.githubusercontent.com/74093781/226047789-e32c57b7-3d0a-4f24-8cab-aaa9772f0ddd.png)
 <br>
-<br> Корзина ![image](https://user-images.githubusercontent.com/74093781/225972222-9afade1f-ac75-4dbc-a1cc-af199bc49450.png)
+<br> Корзина ![image](https://user-images.githubusercontent.com/74093781/226048070-718a7df3-5205-4aa3-9268-0d9c04d52c1b.png)
 <br>
 Список клиентов
 <br> ![image](https://user-images.githubusercontent.com/74093781/225125130-db25b819-fd94-47ea-abe1-26754d6b0ad9.png)
