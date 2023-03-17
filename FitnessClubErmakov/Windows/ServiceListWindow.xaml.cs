@@ -18,16 +18,10 @@ using FitnessClubErmakov.Windows;
 
 namespace FitnessClubErmakov.Windows
 {
-
-
-    // MultiSelectionComboBox https://github.com/RWS/Multiselect-ComboBox?ysclid=les6rck06w664725059
-
-
     /// <summary>
     /// Логика взаимодействия для ServiceListWindow.xaml
     /// </summary>
     /// 
-  
     public partial class ServiceListWindow : Window
     {
         public List<string> listOrder = new List<string>()
@@ -41,6 +35,7 @@ namespace FitnessClubErmakov.Windows
 
         List<string> listFilter = new List<string>()
         {
+            "Без фильтра",
             "С фото",
             "Без фото"
         };
@@ -51,6 +46,9 @@ namespace FitnessClubErmakov.Windows
 
             CMBOrder.ItemsSource = listOrder;
             CMBOrder.SelectedIndex = 0;
+
+            CMBFilter.ItemsSource = listFilter;
+            CMBFilter.SelectedIndex = 0;
         }
 
         private void GetServiceList()
@@ -125,6 +123,26 @@ namespace FitnessClubErmakov.Windows
         private void CMBOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             GetServiceList();
+        }
+
+        private void BtnAddToCart_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            if (button == null)
+            {
+                return;
+            }
+
+            var service = button.DataContext as Service;
+
+            ClassHelper.CartClass.serviceCart.Add(service);
+            MessageBox.Show($"Услуга {service.Name.ToString()} добавлена");
+        }
+
+        private void BtnGoToCart_Click(object sender, RoutedEventArgs e)
+        {
+            CartWindow cartWindow = new CartWindow();
+            cartWindow.ShowDialog();
         }
     }
 }

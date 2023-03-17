@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessClubErmakov.Windows"
         mc:Ignorable="d"
-        Title="Регистрация" Height="780" Width="300"
+        Title="Регистрация" Height="950" Width="300"
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Window.Resources>
         <Style x:Key="FocusVisual">
@@ -297,8 +297,22 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Label Content="Имя" HorizontalAlignment="Center" Margin="0,11,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbFirstName" HorizontalAlignment="Center" Margin="0,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black">
+        <TextBlock x:Name="TblockTitle" Text="Регистрация" FontWeight="Bold" FontSize="30" HorizontalAlignment="Center" Margin="0 30 0 0"/>
+
+        <Border BorderBrush="Black" BorderThickness="1" Width="200" Height="150" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,105,0,0">
+            <Image x:Name="ImgClient" Width="200" Height="150"/>
+        </Border>
+
+        <Button x:Name="BtnChooseImage" Content="Выбрать фото" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,260,0,0" Width="148" Height="26" Click="BtnChooseImage_Click" Background="White" BorderBrush="Black">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Label Content="Имя" HorizontalAlignment="Center" Margin="0,286,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbFirstName" HorizontalAlignment="Center" Margin="0,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black">
             <TextBox.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -306,8 +320,8 @@
             </TextBox.Resources>
         </TextBox>
 
-        <Label Content="Фамилия" HorizontalAlignment="Center" Margin="0,70,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbSecondName" HorizontalAlignment="Center" Margin="0,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black">
+        <Label Content="Фамилия" HorizontalAlignment="Center" Margin="0,345,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbSecondName" HorizontalAlignment="Center" Margin="0,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -315,8 +329,8 @@
             </TextBox.Resources>
         </TextBox>
 
-        <Label Content="Отчество" HorizontalAlignment="Center" Margin="0,127,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbPatronimic" HorizontalAlignment="Center" Margin="0,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black">
+        <Label Content="Отчество" HorizontalAlignment="Center" Margin="0,402,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbPatronimic" HorizontalAlignment="Center" Margin="0,428,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -324,8 +338,8 @@
             </TextBox.Resources>
         </TextBox>
 
-        <Label Content="Телефон" HorizontalAlignment="Center" Margin="0,186,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbPhone" HorizontalAlignment="Center" Margin="0,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black">
+        <Label Content="Телефон" HorizontalAlignment="Center" Margin="0,461,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbPhone" HorizontalAlignment="Center" Margin="0,487,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -333,11 +347,11 @@
             </TextBox.Resources>
         </TextBox>
 
-        <Label Content="Пол" HorizontalAlignment="Center" Margin="0,305,0,0" VerticalAlignment="Top"/>
-        <ComboBox Style="{DynamicResource ComboBoxStyle1}" x:Name="CMBGender" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" Width="148" Height="26" Margin="0,331,0,0"/>
+        <Label Content="Пол" HorizontalAlignment="Center" Margin="0,580,0,0" VerticalAlignment="Top"/>
+        <ComboBox Style="{DynamicResource ComboBoxStyle1}" x:Name="CMBGender" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Top" Width="148" Height="26" Margin="0,606,0,0"/>
 
-        <Label Content="Почта" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,244,0,0"/>
-        <TextBox x:Name="tbEmail" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black" Margin="0,271,0,0">
+        <Label Content="Почта" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,519,0,0"/>
+        <TextBox x:Name="tbEmail" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" Background="White" BorderBrush="Black" Margin="0,546,0,0">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -345,8 +359,8 @@
             </TextBox.Resources>
         </TextBox>
 
-        <Label Content="Пароль" HorizontalAlignment="Center" Margin="0,441,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbPassword" HorizontalAlignment="Center" Margin="0,467,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" BorderBrush="Black">
+        <Label Content="Пароль" HorizontalAlignment="Center" Margin="0,716,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbPassword" HorizontalAlignment="Center" Margin="0,742,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" BorderBrush="Black">
             <TextBox.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -354,8 +368,8 @@
             </TextBox.Resources>
         </TextBox>
 
-        <Label Content="Подтвердить пароль" HorizontalAlignment="Center" Margin="0,498,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbRepPassword" HorizontalAlignment="Center" Margin="0,524,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" BorderBrush="Black">
+        <Label Content="Подтвердить пароль" HorizontalAlignment="Center" Margin="0,773,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbRepPassword" HorizontalAlignment="Center" Margin="0,799,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="26" BorderBrush="Black">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -363,7 +377,7 @@
             </TextBox.Resources>
         </TextBox>
 
-        <Button x:Name="BtnRegistration" Content="Зарегистрироваться" HorizontalAlignment="Center" Margin="0,598,0,0" VerticalAlignment="Top" Width="138" Height="34" Background="White" BorderBrush="#FF020000" Click="BtnRegistration_Click">
+        <Button x:Name="BtnRegistration" Content="Зарегистрироваться" HorizontalAlignment="Center" Margin="0,873,0,0" VerticalAlignment="Top" Width="138" Height="34" Background="White" BorderBrush="#FF020000" Click="BtnRegistration_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="13"/>
@@ -371,7 +385,7 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="BtnAlreadyAccount" Content="У меня уже есть аккаунт" HorizontalAlignment="Center" Margin="0,632,0,0" VerticalAlignment="Top" BorderBrush="#00707070" Background="#00000000" Foreground="Black" FontSize="10" Click="BtnAlreadyAccount_Click"/>
+        <Button x:Name="BtnAlreadyAccount" Content="У меня уже есть аккаунт" HorizontalAlignment="Center" Margin="0,907,0,0" VerticalAlignment="Top" BorderBrush="#00707070" Background="#00000000" Foreground="Black" FontSize="10" Click="BtnAlreadyAccount_Click"/>
 
     </Grid>
 </Window>

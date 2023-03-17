@@ -30,9 +30,10 @@ namespace FitnessClubErmakov.DataBase
         public int IdRole { get; set; }
         public Nullable<int> IdTag { get; set; }
         public string GenderCode { get; set; }
-        public string PhotoPath { get; set; }
+        public byte[] PhotoPath { get; set; }
         public string Password { get; set; }
         public Nullable<int> IdUser { get; set; }
+        public System.DateTime BirthdayDate { get; set; }
     
         public virtual GenderCode GenderCode1 { get; set; }
         public virtual Role Role { get; set; }

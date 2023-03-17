@@ -23,5 +23,19 @@ namespace FitnessClubErmakov.Windows
         {
             InitializeComponent();
         }
+
+        private void BtnServiceListGo_Click(object sender, RoutedEventArgs e)
+        {
+            ServiceListWindow serviceListWindow = new ServiceListWindow();
+            serviceListWindow.Show();
+            this.Close();
+        }
+
+        private void BtnClientListGo_Click(object sender, RoutedEventArgs e)
+        {
+            ClientListWindow clientListWindow = new ClientListWindow();
+            clientListWindow.Show();
+            this.Close();
+        }
     }
 }

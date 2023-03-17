@@ -18,9 +18,10 @@
           <Property Name="IdRole" Type="int" Nullable="false" />
           <Property Name="IdTag" Type="int" />
           <Property Name="GenderCode" Type="nchar" MaxLength="1" Nullable="false" />
-          <Property Name="PhotoPath" Type="nvarchar(max)" />
+          <Property Name="PhotoPath" Type="varbinary(max)" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IdUser" Type="int" />
+          <Property Name="BirthdayDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="ClientService">
           <Key>
@@ -394,9 +395,10 @@
           <Property Name="IdRole" Type="Int32" Nullable="false" />
           <Property Name="IdTag" Type="Int32" />
           <Property Name="GenderCode" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
-          <Property Name="PhotoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoPath" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IdUser" Type="Int32" />
+          <Property Name="BirthdayDate" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="GenderCode1" Relationship="Model.FK_Client_GenderCode" FromRole="Client" ToRole="GenderCode" />
           <NavigationProperty Name="Role" Relationship="Model.FK_Client_Role" FromRole="Client" ToRole="Role" />
           <NavigationProperty Name="TagOfClient" Relationship="Model.FK_Client_TagOfClient" FromRole="Client" ToRole="TagOfClient" />
@@ -579,6 +581,7 @@
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="Model.Client">
               <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="BirthdayDate" ColumnName="BirthdayDate" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />

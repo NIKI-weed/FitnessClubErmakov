@@ -43,10 +43,8 @@ namespace FitnessClubErmakov
             if (authUser != null)
             {
                 // переход на нужное окно
-                //MainWindow mainWindow = new MainWindow();
-                //mainWindow.Show();
-                ServiceListWindow serviceListWindow = new ServiceListWindow();
-                serviceListWindow.Show();
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
                 this.Close();
             }
             else
