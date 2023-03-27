@@ -10,7 +10,7 @@
 <br>
 Окна авторизации и регистрации
 Авторизация
-<br> ![image](https://user-images.githubusercontent.com/74093781/221649318-3462e177-a3a6-4a77-bb75-db866b893ae9.png)
+<br> ![image](https://user-images.githubusercontent.com/74093781/227907556-f4fd20a1-143a-4ad2-b961-324bfea3e7b7.png)
 <br>
 Регистрация
 <br> ![image](https://user-images.githubusercontent.com/74093781/225116869-0d4418e6-e357-4aac-8f20-dcf0a957a4fb.png)
@@ -44,3 +44,6 @@
 <br>
 Список клиентов
 <br> ![image](https://user-images.githubusercontent.com/74093781/225125130-db25b819-fd94-47ea-abe1-26754d6b0ad9.png)
+<br>
+Главное окно
+<br> ![image](https://user-images.githubusercontent.com/74093781/227908144-625385f3-db79-46dd-97d9-26cecdccaf0c.png)
