@@ -134,7 +134,6 @@ namespace FitnessClubErmakov.Windows
                     client.Phone = tbPhone.Text;
                     client.Email = tbEmail.Text;
                     client.GenderCode = (CMBGender.SelectedItem as GenderCode).GenderCode1;
-                    client.IdTag = 1;
                     client.PhotoPath = File.ReadAllBytes(pathImage);
 
                     EFClass.context.Client.Add(client);
