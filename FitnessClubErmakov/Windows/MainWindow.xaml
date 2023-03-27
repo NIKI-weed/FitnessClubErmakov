@@ -13,6 +13,7 @@
                 <GradientStop Color="#FFE427CF" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
+        <TextBlock x:Name="TxtNameUser" Text="Пользователь: " HorizontalAlignment="Right" Margin="16" FontSize="18"/>
         <Button x:Name="BtnServiceListGo" Content="Переход" HorizontalAlignment="Left" Margin="144,123,0,0" VerticalAlignment="Top" FontSize="24" Click="BtnServiceListGo_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
