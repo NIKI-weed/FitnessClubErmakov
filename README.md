@@ -6,7 +6,7 @@
 <br> ![image](https://user-images.githubusercontent.com/74093781/220747667-3cc3891e-d4e3-4a58-a0c5-88e3a91c8201.png)
 <br>
 Структура БД
-<br> ![image](https://user-images.githubusercontent.com/74093781/220729460-33b76256-e35f-41c5-ab09-fb9f0a28d99c.png)
+<br> ![image](https://user-images.githubusercontent.com/74093781/227908460-cebc9ed1-2a68-42a6-9ba2-c01daa838dc8.png)
 <br>
 Окна авторизации и регистрации
 Авторизация
