@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -136,7 +137,7 @@ namespace FitnessClubErmakov.Windows
             var service = button.DataContext as Service;
 
             ClassHelper.CartClass.serviceCart.Add(service);
-            MessageBox.Show($"Услуга {service.Name.ToString()} добавлена");
+            MessageBox.Show($"Услуга \"{service.Name.ToString()}\" добавлена");
         }
 
         private void BtnGoToCart_Click(object sender, RoutedEventArgs e)

@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using FitnessClubErmakov.DataBase;
+using FitnessClubErmakov.ClassHelper;
+
 namespace FitnessClubErmakov.Windows
 {
     /// <summary>
@@ -22,6 +25,7 @@ namespace FitnessClubErmakov.Windows
         public MainWindow()
         {
             InitializeComponent();
+            TxtNameUser.Text = "Пользователь: " + ClassHelper.UserClass.AuthUser.Login + " Роль: " + ClassHelper.UserClass.AuthUser.Role.RoleName;
         }
 
         private void BtnServiceListGo_Click(object sender, RoutedEventArgs e)

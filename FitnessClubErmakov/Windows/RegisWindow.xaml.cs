@@ -43,7 +43,6 @@ namespace FitnessClubErmakov.Windows
 
             InitializeComponent();
 
-
             // Изменения заголовка и текста кнопки
             TblockTitle.Text = "Редактирование клиента";
             BtnRegistration.Content = "Сохранить изменения";
@@ -122,7 +121,7 @@ namespace FitnessClubErmakov.Windows
                 if (tbPassword == tbRepPassword)
                 {
                     MessageBox.Show("Пароли должны совпадать!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
+                    return;                    
                 }
                 else
                 {
@@ -135,12 +134,13 @@ namespace FitnessClubErmakov.Windows
                     client.Phone = tbPhone.Text;
                     client.Email = tbEmail.Text;
                     client.GenderCode = (CMBGender.SelectedItem as GenderCode).GenderCode1;
-                    client.Password = tbPassword.Text;
                     client.PhotoPath = File.ReadAllBytes(pathImage);
 
                     EFClass.context.Client.Add(client);
                     EFClass.context.SaveChanges();
                     MessageBox.Show("Регистрация успешна!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    this.Close();
                 }
             }
            

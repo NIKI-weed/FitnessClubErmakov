@@ -48,8 +48,8 @@
                                 </Image.Source>
                             </Image>
 
-                            <TextBlock Text="{Binding NameService}" FontSize="18" Margin="5 0 0 0"/>
-                            <TextBlock Text="{Binding PriceService}" FontSize="18" Margin="5 0 0 0"/>
+                            <TextBlock Text="{Binding Name}" FontSize="18" Margin="5 0 0 0"/>
+                            <TextBlock Text="{Binding Price}" FontSize="18" Margin="5 0 0 0"/>
                             <TextBlock Text="{Binding Description}" FontSize="18" Margin="5 0 0 0"/>
 
                             <Button x:Name="BtnRemoveProduct" FontSize="18" Width="30" Height="30" Background="{x:Null}" BorderThickness="0" Margin="0 10 10 0" HorizontalAlignment="Right" Click="BtnRemoveProduct_Click">
@@ -62,14 +62,12 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button x:Name="BtnBuy"
-                Content="Купить"
-                Grid.Row="3"
-                Width="250"
-                Height="40"
-                FontSize="22"
-                HorizontalAlignment="Right"
-                Margin="20 0"
-                />
+        <Button x:Name="BtnBuy" Content="Купить" Grid.Row="3" Width="250" Height="34" FontSize="22" HorizontalAlignment="Right" Margin="20 0" Click="BtnBuy_Click" Background="White">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="13"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>
