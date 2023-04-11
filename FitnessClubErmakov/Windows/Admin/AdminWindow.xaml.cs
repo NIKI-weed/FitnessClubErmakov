@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
+using FitnessClubErmakov.DataBase;
+using FitnessClubErmakov.ClassHelper;
+
 namespace FitnessClubErmakov.Windows.Admin
 {
     /// <summary>
@@ -22,6 +26,20 @@ namespace FitnessClubErmakov.Windows.Admin
         public AdminWindow()
         {
             InitializeComponent();
+            TxtNameUser.Text = "Пользователь: " + ClassHelper.UserClass.AuthUser.Login + " Роль: " + ClassHelper.UserClass.AuthUser.Role.RoleName;
+        }
+        private void BtnServiceListGo_Click(object sender, RoutedEventArgs e)
+        {
+            ServiceListWindow serviceListWindow = new ServiceListWindow();
+            serviceListWindow.Show();
+            this.Close();
+        }
+
+        private void BtnClientListGo_Click(object sender, RoutedEventArgs e)
+        {
+            ClientListWindow clientListWindow = new ClientListWindow();
+            clientListWindow.Show();
+            this.Close();
         }
     }
 }

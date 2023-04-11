@@ -15,11 +15,9 @@
           <Property Name="Patronimic" Type="nvarchar" MaxLength="50" />
           <Property Name="Phone" Type="char" MaxLength="11" Nullable="false" />
           <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="IdRole" Type="int" Nullable="false" />
           <Property Name="IdTag" Type="int" />
           <Property Name="GenderCode" Type="nchar" MaxLength="1" Nullable="false" />
           <Property Name="PhotoPath" Type="varbinary(max)" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IdUser" Type="int" />
           <Property Name="BirthdayDate" Type="date" Nullable="false" />
         </EntityType>
@@ -41,11 +39,10 @@
           <Property Name="Patronimic" Type="nvarchar" MaxLength="50" />
           <Property Name="Phone" Type="char" MaxLength="11" Nullable="false" />
           <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="IdRole" Type="int" />
-          <Property Name="GenderCode" Type="nchar" MaxLength="1" />
+          <Property Name="GenderCode" Type="nchar" MaxLength="1" Nullable="false" />
           <Property Name="PhotoPath" Type="nvarchar(max)" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IdUser" Type="int" />
+          <Property Name="BirthdayDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="GenderCode">
           <Key>
@@ -54,22 +51,31 @@
           <Property Name="GenderCode" Type="nchar" MaxLength="1" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="IdOrder" />
+          </Key>
+          <Property Name="IdOrder" Type="int" Nullable="false" />
+          <Property Name="IdClient" Type="int" Nullable="false" />
+          <Property Name="IdEmploye" Type="int" Nullable="false" />
+          <Property Name="DateOrder" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderService">
+          <Key>
+            <PropertyRef Name="IdOrder" />
+            <PropertyRef Name="IdService" />
+          </Key>
+          <Property Name="IdOrder" Type="int" Nullable="false" />
+          <Property Name="IdService" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Summary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="IdRole" />
           </Key>
           <Property Name="IdRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "FitnessClub.dbo.Schedule" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-        <EntityType Name="Schedule">
-          <Key>
-            <PropertyRef Name="IdClient" />
-            <PropertyRef Name="IdEmploye" />
-          </Key>
-          <Property Name="IdClient" Type="int" Nullable="false" />
-          <Property Name="IdEmploye" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -106,6 +112,7 @@
           <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdRole" Type="int" />
         </EntityType>
         <Association Name="FK_Client_GenderCode">
           <End Role="GenderCode" Type="Self.GenderCode" Multiplicity="1" />
@@ -116,18 +123,6 @@
             </Principal>
             <Dependent Role="Client">
               <PropertyRef Name="GenderCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Client_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="1" />
-          <End Role="Client" Type="Self.Client" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Role">
-              <PropertyRef Name="IdRole" />
-            </Principal>
-            <Dependent Role="Client">
-              <PropertyRef Name="IdRole" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -191,27 +186,51 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Schedule_Client">
+        <Association Name="FK_Order_Client">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
-          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
               <PropertyRef Name="IdClient" />
             </Principal>
-            <Dependent Role="Schedule">
+            <Dependent Role="Order">
               <PropertyRef Name="IdClient" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Schedule_Employe">
-          <End Role="Employe" Type="Self.Employe" Multiplicity="1" />
-          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+        <Association Name="FK_OrderService_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderService" Type="Self.OrderService" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Employe">
-              <PropertyRef Name="IdEmploye" />
+            <Principal Role="Order">
+              <PropertyRef Name="IdOrder" />
             </Principal>
-            <Dependent Role="Schedule">
-              <PropertyRef Name="IdEmploye" />
+            <Dependent Role="OrderService">
+              <PropertyRef Name="IdOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderService_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="OrderService" Type="Self.OrderService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="IdService" />
+            </Principal>
+            <Dependent Role="OrderService">
+              <PropertyRef Name="IdService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserAuth_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="UserAuth" Type="Self.UserAuth" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="UserAuth">
+              <PropertyRef Name="IdRole" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -251,23 +270,15 @@
           <EntitySet Name="ClientService" EntityType="Self.ClientService" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employe" EntityType="Self.Employe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GenderCode" EntityType="Self.GenderCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderService" EntityType="Self.OrderService" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TagOfClient" EntityType="Self.TagOfClient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserAuth" EntityType="Self.UserAuth" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Schedule" EntityType="Self.Schedule" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Schedule].[IdClient] AS [IdClient], 
-    [Schedule].[IdEmploye] AS [IdEmploye]
-    FROM [dbo].[Schedule] AS [Schedule]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Client_GenderCode" Association="Self.FK_Client_GenderCode">
             <End Role="GenderCode" EntitySet="GenderCode" />
-            <End Role="Client" EntitySet="Client" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Client_Role" Association="Self.FK_Client_Role">
-            <End Role="Role" EntitySet="Role" />
             <End Role="Client" EntitySet="Client" />
           </AssociationSet>
           <AssociationSet Name="FK_Client_TagOfClient" Association="Self.FK_Client_TagOfClient">
@@ -290,13 +301,21 @@
             <End Role="UserAuth" EntitySet="UserAuth" />
             <End Role="Employe" EntitySet="Employe" />
           </AssociationSet>
-          <AssociationSet Name="FK_Schedule_Client" Association="Self.FK_Schedule_Client">
+          <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
             <End Role="Client" EntitySet="Client" />
-            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK_Schedule_Employe" Association="Self.FK_Schedule_Employe">
-            <End Role="Employe" EntitySet="Employe" />
-            <End Role="Schedule" EntitySet="Schedule" />
+          <AssociationSet Name="FK_OrderService_Order" Association="Self.FK_OrderService_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderService" EntitySet="OrderService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderService_Service" Association="Self.FK_OrderService_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="OrderService" EntitySet="OrderService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserAuth_Role" Association="Self.FK_UserAuth_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="UserAuth" EntitySet="UserAuth" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -337,6 +356,8 @@
           <EntitySet Name="Client" EntityType="Model.Client" />
           <EntitySet Name="Employe" EntityType="Model.Employe" />
           <EntitySet Name="GenderCode" EntityType="Model.GenderCode" />
+          <EntitySet Name="Order" EntityType="Model.Order" />
+          <EntitySet Name="OrderService" EntityType="Model.OrderService" />
           <EntitySet Name="Role" EntityType="Model.Role" />
           <EntitySet Name="Service" EntityType="Model.Service" />
           <EntitySet Name="sysdiagrams" EntityType="Model.sysdiagrams" />
@@ -344,10 +365,6 @@
           <EntitySet Name="UserAuth" EntityType="Model.UserAuth" />
           <AssociationSet Name="FK_Client_GenderCode" Association="Model.FK_Client_GenderCode">
             <End Role="GenderCode" EntitySet="GenderCode" />
-            <End Role="Client" EntitySet="Client" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Client_Role" Association="Model.FK_Client_Role">
-            <End Role="Role" EntitySet="Role" />
             <End Role="Client" EntitySet="Client" />
           </AssociationSet>
           <AssociationSet Name="FK_Client_TagOfClient" Association="Model.FK_Client_TagOfClient">
@@ -358,17 +375,29 @@
             <End Role="UserAuth" EntitySet="UserAuth" />
             <End Role="Client" EntitySet="Client" />
           </AssociationSet>
+          <AssociationSet Name="FK_Order_Client" Association="Model.FK_Order_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
           <AssociationSet Name="FK_Employe_User" Association="Model.FK_Employe_User">
             <End Role="UserAuth" EntitySet="UserAuth" />
             <End Role="Employe" EntitySet="Employe" />
           </AssociationSet>
+          <AssociationSet Name="FK_OrderService_Order" Association="Model.FK_OrderService_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderService" EntitySet="OrderService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderService_Service" Association="Model.FK_OrderService_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="OrderService" EntitySet="OrderService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserAuth_Role" Association="Model.FK_UserAuth_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="UserAuth" EntitySet="UserAuth" />
+          </AssociationSet>
           <AssociationSet Name="ClientService" Association="Model.ClientService">
             <End Role="Client" EntitySet="Client" />
             <End Role="Service" EntitySet="Service" />
-          </AssociationSet>
-          <AssociationSet Name="Schedule" Association="Model.Schedule">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Employe" EntitySet="Employe" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -392,19 +421,16 @@
           <Property Name="Patronimic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="IdRole" Type="Int32" Nullable="false" />
           <Property Name="IdTag" Type="Int32" />
           <Property Name="GenderCode" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
           <Property Name="PhotoPath" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IdUser" Type="Int32" />
           <Property Name="BirthdayDate" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="GenderCode1" Relationship="Model.FK_Client_GenderCode" FromRole="Client" ToRole="GenderCode" />
-          <NavigationProperty Name="Role" Relationship="Model.FK_Client_Role" FromRole="Client" ToRole="Role" />
           <NavigationProperty Name="TagOfClient" Relationship="Model.FK_Client_TagOfClient" FromRole="Client" ToRole="TagOfClient" />
           <NavigationProperty Name="UserAuth" Relationship="Model.FK_Client_User" FromRole="Client" ToRole="UserAuth" />
+          <NavigationProperty Name="Order" Relationship="Model.FK_Order_Client" FromRole="Client" ToRole="Order" />
           <NavigationProperty Name="Service" Relationship="Model.ClientService" FromRole="Client" ToRole="Service" />
-          <NavigationProperty Name="Employe" Relationship="Model.Schedule" FromRole="Client" ToRole="Employe" />
         </EntityType>
         <EntityType Name="Employe">
           <Key>
@@ -416,13 +442,11 @@
           <Property Name="Patronimic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="IdRole" Type="Int32" />
-          <Property Name="GenderCode" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="GenderCode" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
           <Property Name="PhotoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IdUser" Type="Int32" />
+          <Property Name="BirthdayDate" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="UserAuth" Relationship="Model.FK_Employe_User" FromRole="Employe" ToRole="UserAuth" />
-          <NavigationProperty Name="Client" Relationship="Model.Schedule" FromRole="Employe" ToRole="Client" />
         </EntityType>
         <EntityType Name="GenderCode">
           <Key>
@@ -432,13 +456,36 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Client" Relationship="Model.FK_Client_GenderCode" FromRole="GenderCode" ToRole="Client" />
         </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="IdOrder" />
+          </Key>
+          <Property Name="IdOrder" Type="Int32" Nullable="false" />
+          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <Property Name="IdEmploye" Type="Int32" Nullable="false" />
+          <Property Name="DateOrder" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Client" Relationship="Model.FK_Order_Client" FromRole="Order" ToRole="Client" />
+          <NavigationProperty Name="OrderService" Relationship="Model.FK_OrderService_Order" FromRole="Order" ToRole="OrderService" />
+        </EntityType>
+        <EntityType Name="OrderService">
+          <Key>
+            <PropertyRef Name="IdOrder" />
+            <PropertyRef Name="IdService" />
+          </Key>
+          <Property Name="IdOrder" Type="Int32" Nullable="false" />
+          <Property Name="IdService" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Summary" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <NavigationProperty Name="Order" Relationship="Model.FK_OrderService_Order" FromRole="OrderService" ToRole="Order" />
+          <NavigationProperty Name="Service" Relationship="Model.FK_OrderService_Service" FromRole="OrderService" ToRole="Service" />
+        </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="IdRole" />
           </Key>
           <Property Name="IdRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Client" Relationship="Model.FK_Client_Role" FromRole="Role" ToRole="Client" />
+          <NavigationProperty Name="UserAuth" Relationship="Model.FK_UserAuth_Role" FromRole="Role" ToRole="UserAuth" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -450,6 +497,7 @@
           <Property Name="DurationInMin" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="PhotoPath" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="OrderService" Relationship="Model.FK_OrderService_Service" FromRole="Service" ToRole="OrderService" />
           <NavigationProperty Name="Client" Relationship="Model.ClientService" FromRole="Service" ToRole="Client" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -477,8 +525,10 @@
           <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdRole" Type="Int32" />
           <NavigationProperty Name="Client" Relationship="Model.FK_Client_User" FromRole="UserAuth" ToRole="Client" />
           <NavigationProperty Name="Employe" Relationship="Model.FK_Employe_User" FromRole="UserAuth" ToRole="Employe" />
+          <NavigationProperty Name="Role" Relationship="Model.FK_UserAuth_Role" FromRole="UserAuth" ToRole="Role" />
         </EntityType>
         <Association Name="FK_Client_GenderCode">
           <End Type="Model.GenderCode" Role="GenderCode" Multiplicity="1" />
@@ -489,18 +539,6 @@
             </Principal>
             <Dependent Role="Client">
               <PropertyRef Name="GenderCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Client_Role">
-          <End Type="Model.Role" Role="Role" Multiplicity="1" />
-          <End Type="Model.Client" Role="Client" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Role">
-              <PropertyRef Name="IdRole" />
-            </Principal>
-            <Dependent Role="Client">
-              <PropertyRef Name="IdRole" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -528,6 +566,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Order_Client">
+          <End Type="Model.Client" Role="Client" Multiplicity="1" />
+          <End Type="Model.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="IdClient" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Employe_User">
           <End Type="Model.UserAuth" Role="UserAuth" Multiplicity="0..1" />
           <End Type="Model.Employe" Role="Employe" Multiplicity="*" />
@@ -540,13 +590,45 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_OrderService_Order">
+          <End Type="Model.Order" Role="Order" Multiplicity="1" />
+          <End Type="Model.OrderService" Role="OrderService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="IdOrder" />
+            </Principal>
+            <Dependent Role="OrderService">
+              <PropertyRef Name="IdOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderService_Service">
+          <End Type="Model.Service" Role="Service" Multiplicity="1" />
+          <End Type="Model.OrderService" Role="OrderService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="IdService" />
+            </Principal>
+            <Dependent Role="OrderService">
+              <PropertyRef Name="IdService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserAuth_Role">
+          <End Type="Model.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="Model.UserAuth" Role="UserAuth" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="UserAuth">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="ClientService">
           <End Type="Model.Client" Role="Client" Multiplicity="*" />
           <End Type="Model.Service" Role="Service" Multiplicity="*" />
-        </Association>
-        <Association Name="Schedule">
-          <End Type="Model.Client" Role="Client" Multiplicity="*" />
-          <End Type="Model.Employe" Role="Employe" Multiplicity="*" />
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -583,11 +665,9 @@
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="BirthdayDate" ColumnName="BirthdayDate" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
                 <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
                 <ScalarProperty Name="IdTag" ColumnName="IdTag" />
-                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Patronimic" ColumnName="Patronimic" />
@@ -600,11 +680,10 @@
           <EntitySetMapping Name="Employe">
             <EntityTypeMapping TypeName="Model.Employe">
               <MappingFragment StoreEntitySet="Employe">
+                <ScalarProperty Name="BirthdayDate" ColumnName="BirthdayDate" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
                 <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
-                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Patronimic" ColumnName="Patronimic" />
@@ -619,6 +698,26 @@
               <MappingFragment StoreEntitySet="GenderCode">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="GenderCode1" ColumnName="GenderCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="Model.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="DateOrder" ColumnName="DateOrder" />
+                <ScalarProperty Name="IdEmploye" ColumnName="IdEmploye" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="IdOrder" ColumnName="IdOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderService">
+            <EntityTypeMapping TypeName="Model.OrderService">
+              <MappingFragment StoreEntitySet="OrderService">
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="IdService" ColumnName="IdService" />
+                <ScalarProperty Name="IdOrder" ColumnName="IdOrder" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -664,6 +763,7 @@
           <EntitySetMapping Name="UserAuth">
             <EntityTypeMapping TypeName="Model.UserAuth">
               <MappingFragment StoreEntitySet="UserAuth">
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
@@ -673,14 +773,6 @@
           <AssociationSetMapping Name="ClientService" TypeName="Model.ClientService" StoreEntitySet="ClientService">
             <EndProperty Name="Service">
               <ScalarProperty Name="IdService" ColumnName="IdService" />
-            </EndProperty>
-            <EndProperty Name="Client">
-              <ScalarProperty Name="IdClient" ColumnName="IdClient" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="Schedule" TypeName="Model.Schedule" StoreEntitySet="Schedule">
-            <EndProperty Name="Employe">
-              <ScalarProperty Name="IdEmploye" ColumnName="IdEmploye" />
             </EndProperty>
             <EndProperty Name="Client">
               <ScalarProperty Name="IdClient" ColumnName="IdClient" />

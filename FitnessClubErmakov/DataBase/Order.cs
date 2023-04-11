@@ -12,24 +12,21 @@ namespace FitnessClubErmakov.DataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class UserAuth
+    public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserAuth()
+        public Order()
         {
-            this.Client = new HashSet<Client>();
-            this.Employe = new HashSet<Employe>();
+            this.OrderService = new HashSet<OrderService>();
         }
     
-        public int IdUser { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public Nullable<int> IdRole { get; set; }
+        public int IdOrder { get; set; }
+        public int IdClient { get; set; }
+        public int IdEmploye { get; set; }
+        public System.DateTime DateOrder { get; set; }
     
+        public virtual Client Client { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Client> Client { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employe> Employe { get; set; }
-        public virtual Role Role { get; set; }
+        public virtual ICollection<OrderService> OrderService { get; set; }
     }
 }

@@ -17,8 +17,8 @@ namespace FitnessClubErmakov.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Client()
         {
+            this.Order = new HashSet<Order>();
             this.Service = new HashSet<Service>();
-            this.Employe = new HashSet<Employe>();
         }
     
         public int IdClient { get; set; }
@@ -27,21 +27,18 @@ namespace FitnessClubErmakov.DataBase
         public string Patronimic { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public int IdRole { get; set; }
         public Nullable<int> IdTag { get; set; }
         public string GenderCode { get; set; }
         public byte[] PhotoPath { get; set; }
-        public string Password { get; set; }
         public Nullable<int> IdUser { get; set; }
         public System.DateTime BirthdayDate { get; set; }
     
         public virtual GenderCode GenderCode1 { get; set; }
-        public virtual Role Role { get; set; }
         public virtual TagOfClient TagOfClient { get; set; }
         public virtual UserAuth UserAuth { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Service> Service { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employe> Employe { get; set; }
+        public virtual ICollection<Service> Service { get; set; }
     }
 }

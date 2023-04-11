@@ -1,0 +1,283 @@
+﻿<Window x:Class="FitnessClubErmakov.Windows.Coach.ShceduleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FitnessClubErmakov.Windows.Coach"
+        mc:Ignorable="d"
+        Title="ShceduleWindow" Height="1000" Width="1120">
+    <FlowDocument ColumnWidth="1120">
+        <FlowDocument.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFDFFB3F"/>
+                <GradientStop Color="#FFE427CF" Offset="1"/>
+            </LinearGradientBrush>
+        </FlowDocument.Background>
+        <Table>
+            <Table.Resources>
+                <!-- Style for header/footer rows. -->
+                <Style x:Key="headerFooterRowStyle" TargetType="{x:Type TableRowGroup}">
+                    <Setter Property="FontWeight" Value="DemiBold"/>
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Background" Value="AntiqueWhite"/>
+                </Style>
+                <!-- Style for data rows. -->
+                <Style x:Key="dataRowStyle" TargetType="{x:Type TableRowGroup}">
+                    <Setter Property="FontSize" Value="12"/>
+                    <Setter Property="FontStyle" Value="Italic"/>
+                    <Setter Property="Background" Value="Bisque"/>
+                </Style>
+            </Table.Resources>
+            <Table.Columns>
+                <TableColumn Width="120"/>
+                <TableColumn Width="120"/>
+                <TableColumn Width="120"/>
+                <TableColumn Width="120"/>
+                <TableColumn Width="120"/>
+                <TableColumn Width="120"/>
+                <TableColumn Width="120"/>
+            </Table.Columns>
+            <!-- This TableRowGroup hosts a header row for the table. -->
+            <TableRowGroup Style="{StaticResource headerFooterRowStyle}">
+                <TableRow>
+                    <TableCell/>
+                    <TableCell>
+                        <Paragraph>Понедельник</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>Вторник</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>Среда</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>Четверг</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>Пятница</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>Суббота</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>Воскресенье</Paragraph>
+                    </TableCell>
+                </TableRow>
+            </TableRowGroup>
+
+            <!-- This TableRowGroup hosts the main data rows for the table. -->
+            <TableRowGroup Style="{StaticResource dataRowStyle}">
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>6:00-7:00</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>7:00-8:00</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>8:00-9:00</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                    </TableCell>
+                    <TableCell>
+                    </TableCell>
+                    <TableCell>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>9:00-10:00</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>10:00-11:00</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                    </TableCell>
+                    <TableCell>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>11:00-12:00</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>12:00-13:00</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>Обед</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>Обед</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>Обед</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>Обед</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>Обед</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>Обед</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>Обед</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>13:00-14:00</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>14:00-15:00</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>15:00-16:00</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>16:00-17:00</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>17:00-18:00</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>18:00-19:00</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>19:00-20:00</Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>20:00-21:00</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                </TableRow>
+            </TableRowGroup>
+
+            <!-- This TableRowGroup hosts a footer row for the table. -->
+            <TableRowGroup Style="{StaticResource headerFooterRowStyle}">
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>Общее количество тренировок</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>6</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>5</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>5</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>3</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>3</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>2</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Paragraph>1</Paragraph>
+                    </TableCell>
+                    <TableCell>
+                        <Table></Table>
+                    </TableCell>
+                </TableRow>
+            </TableRowGroup>
+        </Table>
+    </FlowDocument>
+</Window>

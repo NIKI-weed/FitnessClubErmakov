@@ -14,26 +14,17 @@ namespace FitnessClubErmakov.DataBase
     
     public partial class Employe
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employe()
-        {
-            this.Client = new HashSet<Client>();
-        }
-    
         public int IdEmploye { get; set; }
         public string Name { get; set; }
         public string SecondName { get; set; }
         public string Patronimic { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public Nullable<int> IdRole { get; set; }
         public string GenderCode { get; set; }
         public string PhotoPath { get; set; }
-        public string Password { get; set; }
         public Nullable<int> IdUser { get; set; }
+        public System.DateTime BirthdayDate { get; set; }
     
         public virtual UserAuth UserAuth { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Client> Client { get; set; }
     }
 }

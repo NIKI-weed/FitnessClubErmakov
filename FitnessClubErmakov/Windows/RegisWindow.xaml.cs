@@ -37,12 +37,11 @@ namespace FitnessClubErmakov.Windows
 
             isEdit = false;
         }
-        public RegisWindow(Client client) 
+        public RegisWindow(Client client)
         {
             // Конструктор для редактирования
 
             InitializeComponent();
-
 
             // Изменения заголовка и текста кнопки
             TblockTitle.Text = "Редактирование клиента";
@@ -104,7 +103,7 @@ namespace FitnessClubErmakov.Windows
             {
 
             }
-            else 
+            else
             {
                 if (string.IsNullOrWhiteSpace(tbSecondName.Text))
                 {
@@ -135,15 +134,16 @@ namespace FitnessClubErmakov.Windows
                     client.Phone = tbPhone.Text;
                     client.Email = tbEmail.Text;
                     client.GenderCode = (CMBGender.SelectedItem as GenderCode).GenderCode1;
-                    client.Password = tbPassword.Text;
                     client.PhotoPath = File.ReadAllBytes(pathImage);
 
                     EFClass.context.Client.Add(client);
-                    EFClass.context.SaveChanges();
+                    //EFClass.context.SaveChanges();
                     MessageBox.Show("Регистрация успешна!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    this.Close();
                 }
             }
-           
+
         }
     }
 }

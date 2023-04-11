@@ -30,6 +30,8 @@ namespace FitnessClubErmakov.DataBase
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Employe> Employe { get; set; }
         public virtual DbSet<GenderCode> GenderCode { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderService> OrderService { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
