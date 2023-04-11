@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using FitnessClubErmakov.Windows;
+using FitnessClubErmakov.Windows.Coach;
 using FitnessClubErmakov.DataBase;
 using FitnessClubErmakov.ClassHelper;
 
@@ -47,13 +48,25 @@ namespace FitnessClubErmakov
 
             if (authUser != null)
             {
+                if (authUser.ToString() = "3")
+                {
+                    ClassHelper.UserClass.AuthUser = authUser;
 
-                ClassHelper.UserClass.AuthUser = authUser;
+                    // переход на нужное окно
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+                }
+                else if (authUser.ToString() = "4") 
+                {
+                    ClassHelper.UserClass.AuthUser = authUser;
 
-                // переход на нужное окно
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
+                    // переход на нужное окно
+                    ShceduleWindow shceduleWindow = new ShceduleWindow();
+                    shceduleWindow.Show();
+                    this.Close();
+                }
+                
             }
             else
             {
