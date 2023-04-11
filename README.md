@@ -47,3 +47,6 @@
 <br>
 Главное окно
 <br> ![image](https://user-images.githubusercontent.com/74093781/227908144-625385f3-db79-46dd-97d9-26cecdccaf0c.png)
+<br>
+Расписание часов тренировок у тренера
+<br> ![image](https://user-images.githubusercontent.com/74093781/231280877-45706f54-8482-4a64-a861-e42bc694cd40.png)
