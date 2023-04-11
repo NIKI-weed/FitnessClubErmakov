@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using FitnessClubErmakov.Windows;
+using FitnessClubErmakov.Windows.Coach;
 using FitnessClubErmakov.DataBase;
 using FitnessClubErmakov.ClassHelper;
 
@@ -31,25 +32,45 @@ namespace FitnessClubErmakov
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            // авторизация
+            // 1. получить всех пользователей!
+            // 2. выбрать пользователей по условию 
+            // 3. из итогового списка выбрать одну запись 
+
             var authUser = ClassHelper.EFClass.context.UserAuth.ToList()
                .Where(i => i.Login == TbLogin.Text && i.Password == TbPassword.Text)
                .FirstOrDefault();
 
             if (authUser != null)
             {
-                // переход на нужное окно
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
+                if (authUser.ToString() = "3")
+                {
+                    ClassHelper.UserClass.AuthUser = authUser;
+
+                    // переход на нужное окно
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+                }
+                else if (authUser.ToString() = "4") 
+                {
+                    ClassHelper.UserClass.AuthUser = authUser;
+
+                    // переход на нужное окно
+                    ShceduleWindow shceduleWindow = new ShceduleWindow();
+                    shceduleWindow.Show();
+                    this.Close();
+                }
+                
             }
             else
             {
-                MessageBox.Show("Пользователь не найден");
+                MessageBox.Show("Пользователь не найден!");
             }
         }
 

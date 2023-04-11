@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessClubErmakov.Windows"
         mc:Ignorable="d"
-        Title="Главное окно" Width="1680" Height="1100">
+        Title="Главное окно" Width="1680" Height="1050">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -30,12 +30,6 @@
         </Button>
         <TextBlock HorizontalAlignment="Left" Margin="122,81,0,0" TextWrapping="Wrap" Text="Список услуг" VerticalAlignment="Top" FontSize="24"/>
         <TextBlock HorizontalAlignment="Left" Margin="510,81,0,0" TextWrapping="Wrap" Text="Список клиентов" VerticalAlignment="Top" FontSize="24"/>
-        <Button x:Name="BtnExit" Content="Выйти" Width="100" Height="34" FontSize="22" HorizontalAlignment="Left" Click="BtnExit_Click" Background="White" Margin="1552,45,0,955">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="13"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+
     </Grid>
 </Window>

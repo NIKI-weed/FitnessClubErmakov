@@ -67,6 +67,7 @@
     </ApplicationDefinition>
     <Compile Include="ClassHelper\CartClass.cs" />
     <Compile Include="ClassHelper\EFClass.cs" />
+    <Compile Include="ClassHelper\UserClass.cs" />
     <Compile Include="DataBase\Client.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -90,6 +91,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Order.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\OrderService.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="DataBase\Role.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -118,8 +125,11 @@
     <Compile Include="Windows\CartWindow.xaml.cs">
       <DependentUpon>CartWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\ClientListWindow.xaml.cs">
+    <Compile Include="Windows\Admin\ClientListWindow.xaml.cs">
       <DependentUpon>ClientListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Coach\ShceduleWindow.xaml.cs">
+      <DependentUpon>ShceduleWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Director\EmpoyerList.xaml.cs">
       <DependentUpon>EmpoyerList.xaml</DependentUpon>
@@ -130,7 +140,7 @@
     <Compile Include="Windows\Director\AddService.xaml.cs">
       <DependentUpon>AddService.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\MainWindow.xaml.cs">
+    <Compile Include="Windows\Director\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\RegisWindow.xaml.cs">
@@ -147,10 +157,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Admin\ClientList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\Admin\CoucheList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,11 +165,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\ClientListWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\Director\DirectorWindow.xaml">
+    <Page Include="Windows\Admin\ClientListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,19 +180,17 @@
     <Compile Include="Windows\Admin\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Admin\ClientList.xaml.cs">
-      <DependentUpon>ClientList.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\Admin\CoucheList.xaml.cs">
       <DependentUpon>CoucheList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\Director\DirectorWindow.xaml.cs">
-      <DependentUpon>DirectorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\AuthWindow.xaml.cs">
       <DependentUpon>AuthWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\Coach\ShceduleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Director\EmpoyerList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -203,7 +203,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\MainWindow.xaml">
+    <Page Include="Windows\Director\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

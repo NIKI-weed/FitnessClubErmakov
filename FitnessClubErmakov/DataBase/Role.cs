@@ -17,13 +17,13 @@ namespace FitnessClubErmakov.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Role()
         {
-            this.Client = new HashSet<Client>();
+            this.UserAuth = new HashSet<UserAuth>();
         }
     
         public int IdRole { get; set; }
         public string RoleName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Client> Client { get; set; }
+        public virtual ICollection<UserAuth> UserAuth { get; set; }
     }
 }

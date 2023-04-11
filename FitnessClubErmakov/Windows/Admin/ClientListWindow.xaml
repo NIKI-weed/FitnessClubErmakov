@@ -6,12 +6,8 @@
         xmlns:local="clr-namespace:FitnessClubErmakov.Windows"
         mc:Ignorable="d"
         Title="ClientListWindow" Width="1680" Height="1050">
-
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="839*"/>
-        </Grid.ColumnDefinitions>
+    
+       <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
@@ -25,7 +21,7 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <WrapPanel Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="2">
+        <WrapPanel Grid.Row="1" VerticalAlignment="Center">
 
             <TextBlock Text="Поиск:" FontSize="20" Margin="8 0 0 0"/>
             <TextBox x:Name="TbSearch" Width="200" FontSize="20" Background="Transparent" Margin="8 0 0 0" TextChanged="TbSearch_TextChanged" SelectionBrush="Black" BorderBrush="Black" />
@@ -37,9 +33,9 @@
             <ComboBox Style="{DynamicResource ComboBoxStyle2}" ItemsSource="{Binding listOrder}" FontSize="20" x:Name="CMBOrder" Width="200" Margin="8 0 0 0"/>
         </WrapPanel>
 
-        <TextBlock Text="Список клиентов" FontSize="30" FontWeight="Bold" HorizontalAlignment="Left" Grid.Column="1" Margin="712,0,0,0"/>
+        <TextBlock Text="Список клиентов" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>
 
-        <ListView x:Name="lvClient" Grid.Row="2" Margin="3,5,5,5" d:ItemsSource="{d:SampleData ItemCount=5}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lvClient_SelectionChanged" Grid.Column="1">
+        <ListView x:Name="lvClient" Grid.Row="2" Margin="5" d:ItemsSource="{d:SampleData ItemCount=5}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="lvClient_SelectionChanged">
             <ListView.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop/>
@@ -83,22 +79,12 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button x:Name="BtnAddService" Content="Добавить клиента" Grid.Row="3" Width="250" Height="34" FontSize="22" HorizontalAlignment="Left" Margin="1408,8,0,8" Click="BtnAddClient_Click" Background="White" Grid.Column="1">
+        <Button x:Name="BtnAddService" Content="Добавить клиента" Grid.Row="3" Width="250" Height="34" FontSize="22" HorizontalAlignment="Right" Margin="20 0" Click="BtnAddClient_Click" Background="White">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="13"/>
                 </Style>
             </Button.Resources>
         </Button>
-
-        <Button x:Name="BtnBack" Grid.Row="0" Width="35" Height="34" FontSize="22" HorizontalAlignment="Left" Margin="18,8,0,8" Click="BtnBack_Click" Background="Transparent" Grid.Column="1" BorderThickness="0">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="90"/>
-                </Style>
-            </Button.Resources>
-            <Image Source="/Resources/backarrow.png" />
-        </Button>
-
     </Grid>
 </Window>

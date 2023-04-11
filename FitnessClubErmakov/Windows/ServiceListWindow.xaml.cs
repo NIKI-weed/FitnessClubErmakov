@@ -25,7 +25,7 @@ namespace FitnessClubErmakov.Windows
     public partial class ServiceListWindow : Window
     {
         public List<string> listOrder = new List<string>()
-        {   
+        {
         "По умолчанию",
         "По названию (А - Я)",
         "По названию (Я - А)",
@@ -87,7 +87,7 @@ namespace FitnessClubErmakov.Windows
             // Фильтрация
 
 
-            lvService.ItemsSource = serviceList; 
+            lvService.ItemsSource = serviceList;
         }
 
         private void BtnEditProduct_Click(object sender, RoutedEventArgs e)
@@ -136,7 +136,7 @@ namespace FitnessClubErmakov.Windows
             var service = button.DataContext as Service;
 
             ClassHelper.CartClass.serviceCart.Add(service);
-            MessageBox.Show($"Услуга {service.Name.ToString()} добавлена");
+            MessageBox.Show($"Услуга \"{service.Name.ToString()}\" добавлена");
         }
 
         private void BtnGoToCart_Click(object sender, RoutedEventArgs e)

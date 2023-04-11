@@ -6,11 +6,11 @@
 <br> ![image](https://user-images.githubusercontent.com/74093781/220747667-3cc3891e-d4e3-4a58-a0c5-88e3a91c8201.png)
 <br>
 Структура БД
-<br> ![image](https://user-images.githubusercontent.com/74093781/220729460-33b76256-e35f-41c5-ab09-fb9f0a28d99c.png)
+<br> ![image](https://user-images.githubusercontent.com/74093781/231175943-5d4e90ef-8bc3-4d65-b21b-4c3963817635.png)
 <br>
 Окна авторизации и регистрации
 Авторизация
-<br> ![image](https://user-images.githubusercontent.com/74093781/221649318-3462e177-a3a6-4a77-bb75-db866b893ae9.png)
+<br> ![image](https://user-images.githubusercontent.com/74093781/227907556-f4fd20a1-143a-4ad2-b961-324bfea3e7b7.png)
 <br>
 Регистрация
 <br> ![image](https://user-images.githubusercontent.com/74093781/225116869-0d4418e6-e357-4aac-8f20-dcf0a957a4fb.png)
@@ -19,7 +19,7 @@
 <br> ![image](https://user-images.githubusercontent.com/74093781/220729617-4bde9558-c59e-4cea-a4ae-0e72f95bc2ed.png)
 <br> 
 Список услуг
-<br> ![image](https://user-images.githubusercontent.com/74093781/225124149-c8813397-5686-411c-b23f-5af5fae7358a.png)
+<br> ![image](https://user-images.githubusercontent.com/74093781/226047136-5507536b-71d6-47ac-aaf4-fe165ae8ff2a.png)
 <br>
 Добавление услуги
 <br> ![image](https://user-images.githubusercontent.com/74093781/221620948-b527fd72-998c-4905-9cf9-3d8d23b70181.png)
@@ -38,9 +38,12 @@
 <br> По цене (возрастание) ![image](https://user-images.githubusercontent.com/74093781/225124418-e5e508a6-2d7e-49a8-a671-2b7d073385c0.png)
 <br> По цене (убывание) ![image](https://user-images.githubusercontent.com/74093781/225124475-ae19066e-23fd-490c-bfcd-fd2b8aac0182.png)
 <br>
-<br> Добавление товара в корзину ![image](https://user-images.githubusercontent.com/74093781/225971802-0579bf5b-e4ec-426d-801a-73238dbf374e.png)
+<br> Добавление товара в корзину ![image](https://user-images.githubusercontent.com/74093781/226047789-e32c57b7-3d0a-4f24-8cab-aaa9772f0ddd.png)
 <br>
-<br> Корзина ![image](https://user-images.githubusercontent.com/74093781/225972222-9afade1f-ac75-4dbc-a1cc-af199bc49450.png)
+<br> Корзина ![image](https://user-images.githubusercontent.com/74093781/226048070-718a7df3-5205-4aa3-9268-0d9c04d52c1b.png)
 <br>
 Список клиентов
 <br> ![image](https://user-images.githubusercontent.com/74093781/225125130-db25b819-fd94-47ea-abe1-26754d6b0ad9.png)
+<br>
+Главное окно
+<br> ![image](https://user-images.githubusercontent.com/74093781/227908144-625385f3-db79-46dd-97d9-26cecdccaf0c.png)

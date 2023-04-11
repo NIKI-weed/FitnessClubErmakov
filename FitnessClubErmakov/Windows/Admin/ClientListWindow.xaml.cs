@@ -98,12 +98,11 @@ namespace FitnessClubErmakov.Windows
 
             var client = button.DataContext as Client;
 
-            
+
             RegisWindow regisWindow = new RegisWindow(client);
             regisWindow.ShowDialog();
 
             GetClientList();
-
         }
 
         private void BtnAddClient_Click(object sender, RoutedEventArgs e)
@@ -129,11 +128,6 @@ namespace FitnessClubErmakov.Windows
 
         }
 
-        private void BtnBack_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            this.Close();
-            mainWindow.ShowDialog();
-        }
+       
     }
 }

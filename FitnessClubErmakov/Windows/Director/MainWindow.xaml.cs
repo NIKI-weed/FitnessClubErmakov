@@ -41,12 +41,5 @@ namespace FitnessClubErmakov.Windows
             clientListWindow.Show();
             this.Close();
         }
-
-        private void BtnExit_Click(object sender, RoutedEventArgs e)
-        {
-            AuthWindow authWindow = new AuthWindow();
-            this.Close();
-            authWindow.ShowDialog();
-        }
     }
 }
